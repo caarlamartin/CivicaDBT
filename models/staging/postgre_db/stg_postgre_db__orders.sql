@@ -1,9 +1,17 @@
+{{ config(
+    materialized='incremental',
+    unique_key='order_id',
+    incremental_strategy='merge'
+) }}
+
 with 
 
 source as (
 
     select * from {{ source('postgre_db', 'orders') }}
-
+    {% if is_incremental() %}
+        WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }})
+    {% endif %}
 ),
 
 renamed as (
