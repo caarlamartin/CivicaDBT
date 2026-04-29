@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_google_sheets__budget
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: google_schema_silver
+  - name: stg_postgre_db__addresses
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
+  - name: stg_postgre_db__orderitems
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
+  - name: stg_postgre_db__orders
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
+  - name: stg_postgre_db__products
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
+  - name: stg_postgre_db__promos
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
+  - name: stg_postgre_db__user
+    config: 
+      materialized: table
+      database: DB13_SILVER_DB
+      schema: postgre_schema_silver
